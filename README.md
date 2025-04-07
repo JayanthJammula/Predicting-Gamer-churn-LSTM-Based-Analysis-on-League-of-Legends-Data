@@ -45,6 +45,43 @@ This project builds a pipeline to predict player churn in Riot Games' *League of
 
 ---
 
+## 📈 Results
+
+### ✅ Model Performance
+
+- **Model:** Bidirectional LSTM with 3 LSTM layers, batch normalization, and dropout
+- **Regularization:** L2 (λ = 0.005)
+- **Optimizer:** Adam
+- **Loss Function:** Binary Cross-Entropy
+- **Early Stopping:** Enabled, patience of 5 epochs
+
+### 🧪 Confusion Matrix
+|           | Predicted Churn | Predicted Not Churn |
+|-----------|------------------|----------------------|
+| **Actual Churn**     | 542              | 9                    |
+| **Actual Not Churn** | 9                | 820                  |
+
+### 📊 Performance Metrics
+- **Accuracy:** 98.97%
+- **Precision:** 98.36%
+- **Recall:** 98.36%
+- **F1 Score:** 98.36%
+
+### 📉 Training and Validation
+- Minimal overfitting observed
+- Training and validation losses stabilized early (~10 epochs)
+- Training and validation accuracies plateaued between **98.5%–98.9%**
+
+---
+
+## 📊 Key Insights from Analysis
+
+- Players with **high win/loss ratio, longer daily streaks**, and **greater champion diversity** are significantly less likely to churn.
+- Churners showed **lower average champion level**, **less gameplay variety**, and **fewer active days**.
+- Significant predictors (via T-tests): `win_loss_ratio`, `unique_champions`, `kill_death_ratio`, `avg_daily_streak`, `total_active_days`
+- Visualizations (histograms, box plots, pairplots, and heatmaps) helped detect outliers, feature distributions, and correlations.
+
+---
 ## Installation
 
 Ensure you have Python 3.8+ installed. Then install the required dependencies:
